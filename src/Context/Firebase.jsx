@@ -6,13 +6,13 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 //initializing firebase authentication.
 const firebaseConfig = {
-    apiKey: "AIzaSyCuevlpqhXZtvBh8aNzieVbv0tPearzAuE",
-    authDomain: "tactoctoe-ddd39.firebaseapp.com",
-    projectId: "tactoctoe-ddd39",
-    storageBucket: "tactoctoe-ddd39.firebasestorage.app",
-    messagingSenderId: "942469692843",
-    appId: "1:942469692843:web:5c4a1bf07d2dcb183e66ee",
-    measurementId: "G-YSZ8LFJX86"
+    apiKey: process.env.FIREBASE_API_KEY,
+    authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.FIREBASE_PROJECT_ID,
+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDERID,
+    appId: process.env.FIREBASE_APP_ID,
+    measurementId: process.env.FIREBASE_MEASUREMENT_ID,
   };
 const appInitial = initializeApp(firebaseConfig)
 export const auth = getAuth(appInitial)
