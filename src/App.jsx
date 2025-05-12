@@ -14,7 +14,7 @@ export function Chat({user}){
          <div>
       {user 
       ? <p style={{color:"black"}}>Welcome, {user.email}. <br /> Thanks for joining us. <br />We will ready and notify you soon, In sha Allah! </p> 
-      : <p style={{color:"black"}}>Please <Link to="/login">login</Link> first. </p>}
+      : <p style={{color:"black"}}>Please <Link to="/login">login</Link> or <Link to="/signup">signup</Link> first. </p>}
     </div>
    </div>
  )
