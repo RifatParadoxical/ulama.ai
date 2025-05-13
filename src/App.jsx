@@ -10,7 +10,7 @@ import './App.css'
 export function Chat({user}){
  return(
    <div>
-    <h1 style={{color:"black"}}>ulama.ai </h1>
+    <h1 style={{color:"black"}}> Chat Ai </h1>
          <div>
       {user 
       ? <p style={{color:"black"}}>Welcome, {user.email}. <br /> Thanks for joining us. <br />We will ready and notify you soon, In sha Allah! </p> 
