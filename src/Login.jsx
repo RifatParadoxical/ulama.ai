@@ -53,6 +53,7 @@ function Login() {
               placeholder="Enter your password"
               required
             />
+          <Link to={"/forgot"}> Forgotten password? </Link>
           </div>
           <button type="submit" className="login-btn">Login</button>
         </form>

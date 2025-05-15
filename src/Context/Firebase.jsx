@@ -17,6 +17,7 @@ const firebaseConfig = {
 const appInitial = initializeApp(firebaseConfig)
 export const auth = getAuth(appInitial)
 
+
 //exporting components & modules.
 const AppContext = createContext();
 export const UseAuth=()=>useContext(AppContext);
@@ -28,5 +29,4 @@ return(
         {children}
     </AppContext.Provider>
 )
-
 }

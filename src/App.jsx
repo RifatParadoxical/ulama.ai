@@ -1,22 +1,23 @@
 import { onAuthStateChanged } from 'firebase/auth';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { auth } from './Context/Firebase.jsx';
 import { useEffect, useState } from 'react';
-import SignUp from './SignUp.jsx'
+import Messages from './Messages.jsx';
+import ForgetPass from './ForgetPass.jsx';
+import SignUp from './SignUp.jsx';
 import Login from './Login.jsx';
 import './App.css'
 
 
 export function Chat({user}){
+  
  return(
-   <div>
-    <h1 style={{color:"black"}}> Ulama Ai </h1>
-         <div>
+     <div>
       {user 
-      ? <p style={{color:"black"}}>Welcome, {user.email}. <br /> Thanks for joining us. <br />We will ready and notify you soon, In sha Allah! </p> 
-      : <p style={{color:"black"}}>Please <Link to="/login">login</Link> or <Link to="/signup">signup</Link> first. </p>}
+      ? < Messages/>
+      : < SignUp />
+      }
     </div>
-   </div>
  )
 }
 
@@ -37,6 +38,7 @@ function App() {
     <Route path="/signup" element={<SignUp />} />
     <Route path="/login" element={<Login />} />
     <Route path='/' element={<Chat user={user} />} />
+    <Route path="/forgot" element={<ForgetPass />} />
     </Routes>
     </>
   )
