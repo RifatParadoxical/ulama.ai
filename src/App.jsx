@@ -2,8 +2,9 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { Routes, Route } from 'react-router-dom';
 import { auth } from './Context/Firebase.jsx';
 import { useEffect, useState } from 'react';
-import Messages from './Messages.jsx';
 import ForgetPass from './ForgetPass.jsx';
+import Messages from './Messages.jsx';
+import NotFound from './NotFound.jsx';
 import SignUp from './SignUp.jsx';
 import Login from './Login.jsx';
 import './App.css'
@@ -39,6 +40,7 @@ function App() {
     <Route path="/login" element={<Login />} />
     <Route path='/' element={<Chat user={user} />} />
     <Route path="/forgot" element={<ForgetPass />} />
+    <Route path='*' element={<NotFound />} />
     </Routes>
     </>
   )
