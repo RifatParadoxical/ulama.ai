@@ -1,7 +1,8 @@
 //importing modules.
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { createContext, useContext, useEffect, useState } from "react";
+import { getFirestore } from "firebase/firestore";
+import { createContext, useContext } from "react";
 
 
 // initializing firebase authentication.
@@ -16,6 +17,7 @@ const firebaseConfig = {
   };
 const appInitial = initializeApp(firebaseConfig)
 export const auth = getAuth(appInitial)
+export const db = getFirestore(appInitial)
 
 
 //exporting components & modules.
@@ -25,7 +27,7 @@ export const AppProvider =({children})=>{
 
 
 return(
-    <AppContext.Provider value={{auth}}>
+    <AppContext.Provider value={{auth, db}}>
         {children}
     </AppContext.Provider>
 )

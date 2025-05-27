@@ -2,11 +2,11 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { Routes, Route } from 'react-router-dom';
 import { auth } from './Context/Firebase.jsx';
 import { useEffect, useState } from 'react';
-import ForgetPass from './ForgetPass.jsx';
-import Messages from './Messages.jsx';
-import NotFound from './NotFound.jsx';
-import SignUp from './SignUp.jsx';
-import Login from './Login.jsx';
+import ForgetPass from './Components/ForgetPass.jsx';
+import Messages from './Components/Messages.jsx';
+import NotFound from './Components/NotFound.jsx';
+import SignUp from './Components/SignUp.jsx';
+import Login from './Components/Login.jsx';
 import './App.css'
 
 
