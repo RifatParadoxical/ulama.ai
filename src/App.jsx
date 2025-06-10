@@ -1,49 +1,20 @@
-import { onAuthStateChanged } from 'firebase/auth';
-import { Routes, Route } from 'react-router-dom';
-import { auth } from './Context/Firebase.jsx';
-import { useEffect, useState } from 'react';
-import ForgetPass from './Components/ForgetPass.jsx';
-import Messages from './Components/Messages.jsx';
-import NotFound from './Components/NotFound.jsx';
-import SignUp from './Components/SignUp.jsx';
-import Login from './Components/Login.jsx';
-import './App.css'
+import { Routes, Route } from "react-router-dom";
+import SignUp from "./Pages/SignUp"
+import Login from "./Pages/Login"
+import ForgetPass from "./Pages/ForgetPass"
+import NotFound from "./Pages/NotFound"
+import Messages from "./Pages/Messages"
 
+const App = () => {
 
-export function Chat({user}){
-  
- return(
-     <div>
-      {user 
-      ? < Messages/>
-      : < SignUp />
-      }
-    </div>
- )
+    return(
+        <Routes>
+            <Route path="/" element={ <Messages />} />
+            <Route path="/signup" element={ <SignUp /> } />
+            <Route path="/login" element={  <Login />} />
+            <Route path="/forget-password" element={ <ForgetPass /> } />
+            <Route path="*" element={ <NotFound /> } />
+        </Routes>
+    )
 }
-
-function App() {
-  const [user, setUser] = useState(null)
- useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user);
-    });
-
-    // Cleanup listener on unmount
-    return () => unsubscribe();
-  }, []);
-
-  return (
-    <>
-    <Routes>
-    <Route path="/signup" element={<SignUp />} />
-    <Route path="/login" element={<Login />} />
-    <Route path='/' element={<Chat user={user} />} />
-    <Route path="/forgot" element={<ForgetPass />} />
-    <Route path='*' element={<NotFound />} />
-    </Routes>
-    </>
-  )
-}
-
-export default App;
+export default App ;

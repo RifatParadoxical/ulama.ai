@@ -1,11 +1,8 @@
-//importing modules.
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { createContext } from "react";
 import { getFirestore } from "firebase/firestore";
-import { createContext, useContext } from "react";
 
-
-// initializing firebase authentication.
 const firebaseConfig = {
     apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
     authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
@@ -15,20 +12,17 @@ const firebaseConfig = {
     appId: import.meta.env.VITE_FIREBASE_APP_ID,
     measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
   };
-const appInitial = initializeApp(firebaseConfig)
-export const auth = getAuth(appInitial)
-export const db = getFirestore(appInitial)
 
+  const app = initializeApp(firebaseConfig)
+  const auth = getAuth(app)
+  const db = getFirestore(app)
 
-//exporting components & modules.
-const AppContext = createContext();
-export const UseAuth=()=>useContext(AppContext);
-export const AppProvider =({children})=>{
-
-
-return(
+   export const AppContext = createContext()
+    const AppProvider = ({children}) => {
+    return(
     <AppContext.Provider value={{auth, db}}>
         {children}
     </AppContext.Provider>
-)
-}
+    )
+  }
+  export default AppProvider ;
