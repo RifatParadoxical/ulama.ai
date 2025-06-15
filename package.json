@@ -11,13 +11,13 @@
   },
   "dependencies": {
     "@google/genai": "^1.4.0",
+    "dompurify": "^3.2.6",
     "firebase": "^11.6.0",
+    "marked": "^15.0.12",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.56.4",
-    "react-markdown": "^10.1.0",
-    "react-router-dom": "^7.6.0",
-    "rehype-raw": "^7.0.0"
+    "react-router-dom": "^7.6.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

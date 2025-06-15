@@ -15,7 +15,7 @@ const Navbar = () => {
 }
 
     return(
-        <div style={{position:"absolute", width:"100vw", display:"flex"}}>
+        <div style={{ height:"10vh",width:"100vw", display:"flex", backgroundColor:"#212121"}}>
             <img style={{height:"48px", position:"absolute",left:"3px", top:"7px", aspectRatio:"1/1"}} src="/ulama-ai.svg" alt="Ulama Ai Logo" srcSet="/ulama-ai.svg" />
             <button style={{backgroundColor:"red", position:"absolute",right:"5px", top:"10px", color:"white", border:"none", borderRadius:"4px", padding:"12px", fontSize:"14px"}}
             onClick={handleLogOut} >Logout</button>

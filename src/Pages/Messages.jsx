@@ -24,7 +24,7 @@ return(
     {user ? 
     <div>
         <Navbar />
-        <div style={{display:"flex", }}>
+        <div style={{display:"flex" }}>
         <ChatList />
         <Chats />
         </div>
