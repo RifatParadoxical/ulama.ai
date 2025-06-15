@@ -24,4 +24,4 @@ Ask what you're too shy to ask. Learn privately, grow confidently, guided by ada
 Serving reverts, students, seekers — across languages and lands.
 
  # Conclusion
-Ulama ai is a chat based web application which was started to developing by ©️[Rifat](https://github.com/RifatParadoxical) in 2025.
+Ulama ai is a chat based web application which was start developing by ©️[Rifat](https://github.com/RifatParadoxical) from 2025.
