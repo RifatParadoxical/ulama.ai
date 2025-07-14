@@ -1,18 +1,31 @@
-import React, { useState } from 'react';
+import { useState , useContext } from 'react';
+import { AppContext } from '../Context/Firebase';
+import { sendPasswordResetEmail } from 'firebase/auth';
+
 
 const ForgetPass = () => {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+    const {auth} = useContext(AppContext)
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
-        // Simulate Firebase password reset request
-        // In a real app, use Firebase's sendPasswordResetEmail
-        if (email) {
-            setMessage('An email has been sent to reset your password.');
-        } else {
+        
+        if (!email) {
             setMessage('Please enter your email.');
+            return
+        } 
+        try {
+            await sendPasswordResetEmail(auth, email)
+            setMessage("An email has been sent to your address. Please check your inbox or spam folder")
+        } catch (error) {
+            if (error.code === "auth/user-not-found") {
+                setMessage("The mail you have provided is not a valid user's. You may create a new account with the mail address.")
+            } else{
+                setMessage("OOOPs! Something went Wrong, please try again later.")
+            }
         }
+        
     };
 
     return (

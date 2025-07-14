@@ -18,8 +18,12 @@ const Login = () =>{
         await signInWithEmailAndPassword(auth, data.email, data.password)
         await navigate("/")
       } catch (error) {
-        setlogError(error.code)
-      } 
+            if (error.code === "auth/user-not-found") {
+                setlogError("The mail you have provided is not a valid user's. You may signup to create a new account with the mail address.")
+            } else{
+                setlogError("OOOPs! Something went Wrong, please try again later.")
+            }
+        }
     }
     useEffect(()=>{
       const unsubscribe = onAuthStateChanged( auth , (user)=>{
@@ -81,7 +85,7 @@ const Login = () =>{
         <p style={{textAlign: "center"}}>
           Don't have an Account? <Link to="/signup" style={{color: "#007bff", textDecoration: "none"}}>Sign Up</Link>
         </p>
-        {logError && <p style={{color: "red", fontSize: "16px", textAlign: "center"}}> {logError.code} </p>}
+        {logError && <p style={{color: "red", fontSize: "16px", textAlign: "center"}}> {logError} </p>}
       </form>
     </div>
 }
