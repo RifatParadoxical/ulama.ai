@@ -51,20 +51,84 @@ const Chats = () => {
     } catch (errors) {
       setGptError(errors.name)
     }
+
+    
   }
 
   return (
-    <div style={{width:"100vw", height:"90vh", display:"flex", flexDirection:"column", alignItems:"center", backgroundColor:"gray", overflowY:"auto"}}>
-    {gptError 
-     ? <div style={{color: "red", overflowY:"scroll"}}> { setGptError } </div>
-     : <div style={{ color: "white", marginLeft:"10vw"}} dangerouslySetInnerHTML={{ __html: gptResponse }} />
-    }
-      <form style={{position:"absolute", bottom:"30px"}} onSubmit={handleSubmit(onSubmit)}>
-      <textarea style={{borderRadius:"5px", resize:"none", width:"60vw", fontFamily:"Arial",lineHeight:"1.5", fontSize:"14px" }} 
-      {...register("prompt",{required: true })} autoComplete="off" rows="3"></textarea>
-      <input style={{position:"relative", left:"-50px", top:"-25px"}} type="submit" value="Send"/>
-      </form>
+<div style={{
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    height: "90vh",
+    width: "100vw",
+    backgroundColor: "#f0f0f0",
+    padding: "20px", 
+    boxSizing: "border-box", 
+  }}>
+    <div style={{
+      width: "80%", 
+      maxWidth: "800px", 
+      flexGrow: 1,
+      display: "flex",
+      flexDirection: "column",
+      backgroundColor: "#fff",
+      borderRadius: "10px",
+      boxShadow: "0 0 10px rgba(0,0,0,0.1)",
+      overflowY: "auto",  
+      padding: "20px",
+    }}>
+      {gptError ? (
+        <div style={{ color: "red", overflowY: "auto" }}>{gptError}</div>
+      ) : (
+        <div style={{ color: "#333", lineHeight: "1.6", fontSize: "16px", fontFamily: "Arial, sans-serif" }} dangerouslySetInnerHTML={{ __html: gptResponse }} />
+      )}
     </div>
+
+    <form
+      style={{
+        width: "80%", 
+        maxWidth: "800px",
+        marginTop: "20px", 
+        marginBottom:"30px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center", 
+      }}
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      <textarea
+        style={{
+          borderRadius: "5px",
+          resize: "none",
+          width: "70%", 
+          fontFamily: "Arial, sans-serif",
+          lineHeight: "1.5",
+          fontSize: "14px",
+          padding: "10px",
+          border: "1px solid #ccc",
+        }}
+        {...register("prompt", { required: true })}
+        autoComplete="off"
+        rows="3"
+        placeholder="Ask a question..."
+      />
+      <input
+        type="submit"
+        value="Send"
+        style={{
+          backgroundColor: "#007bff",
+          color: "white",
+          padding: "10px 15px",
+          border: "none",
+          borderRadius: "5px",
+          cursor: "pointer",
+          fontSize: "16px",
+          marginLeft: "10px", 
+        }}
+      />
+    </form>
+  </div>
   )
 }
 export default Chats ;
